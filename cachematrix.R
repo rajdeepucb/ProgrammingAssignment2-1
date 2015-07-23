@@ -4,15 +4,15 @@ makeCacheMatrix <- function(x = matrix()) {	## Creates a special “matrix” ob
         		# 2. get the matrix
         		# 3. set the inverse
         		# 4. get the inverse
-        i = NULL
+        i = NULL	## Initializing the inverse property
         set = function(y) {
         # '<<-' used to assign a value to an object in an environment that is different from the current environment. 
         x <<- y
         i <<- NULL
         }
-        get = function() x
-        setinv = function(inverse) i <<- inverse 
-        getinv = function() i
+        get = function() x	## To get the matrix
+        setinv = function(inverse) i <<- inverse 	## To set the inverse of the matrix
+        getinv = function() i		## To get the inverse of the matrix
         list(set=set, get=get, setinv=setinv, getinv=getinv)
 	}
 
@@ -27,7 +27,6 @@ cacheSolve <- function(x, ...) {	## cacheSolve return the inverse of the origina
         # otherwise, calculates the inverse 
         mat.data = x$get()
         i = solve(mat.data, ...)
-        # sets the value of the inverse in the cache via the setinv function.
-        x$setinv(i)
+        x$setinv(i)		## Set the  inverse in the cache
         return(i)
 	}
