@@ -6,7 +6,6 @@ makeCacheMatrix <- function(x = matrix()) {	## Creates a special matrix object t
         		# 4. get the inverse
         i = NULL	## Initializing the inverse property
         set = function(y) {
-        # '<<-' used to assign a value to an object in an environment that is different from the current environment. 
         x <<- y
         i <<- NULL
         }
